@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main() {
+    int N, i, elementToDelete, found = 0;
+    scanf("%d", &N);
+
+    int list[N];
+    for(i = 0; i < N; i++) {
+        scanf("%d", &list[i]);
+    }
+    scanf("%d", &elementToDelete);
+    for(i = 0; i < N; i++) {
+        if(list[i] == elementToDelete) {
+            found = 1;
+            break;
+        }
+    }
+
+
+    if(found) {
+        for(; i < N-1; i++) {
+            list[i] = list[i + 1];
+        }
+        N--; 
+    }
+    for(i = 0; i < N; i++) {
+        printf("%d ", list[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
